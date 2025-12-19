@@ -1,39 +1,36 @@
-.slider {
-  height: 40px; /* Height of one line of text */
-  overflow: hidden;
-  position: relative;
-  font-size: 24px;
-  font-weight: normal;
+.slider{
+  height:40px;
+  overflow:hidden;
+  position:relative;
+  font-size:24px;
+  font-weight:normal;
 }
 
-.slides {
-  display: flex;
-  flex-direction: column;
-  will-change: transform;
-  transform: translateZ(0);
-  animation: slide 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.slides{
+  display:flex;
+  flex-direction:column;
+  animation:slide 8s ease-in-out infinite;
 }
 
-.slides div {
-  height: 40px; /* Same as slider height */
-  display: flex;
-  align-items: center;
+.slides div{
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  text-align:center;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-40px); /* Move up to show the 2nd item */
-  }
-  90% {
-    transform: translateY(-40px);
-  }
-  100% {
-    transform: translateY(0); /* Back to first */
-  }
+
+
+@keyframes slide{
+  0%{transform:translateY(0)}
+  20%{transform:translateY(0)}
+  25%{transform:translateY(-40px)}
+  45%{transform:translateY(-40px)}
+  50%{transform:translateY(-80px)}
+  70%{transform:translateY(-80px)}
+  75%{transform:translateY(-120px)}
+  95%{transform:translateY(-120px)}
+  100%{transform:translateY(0)}
 }

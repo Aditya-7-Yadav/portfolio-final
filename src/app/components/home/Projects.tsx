@@ -6,6 +6,7 @@ import SectionHeader from "../ui/SectionHeader";
 import { motion } from "framer-motion";
 
 type Project = {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -14,43 +15,37 @@ type Project = {
   demo: string | null;
 };
 
+
 const projects: Project[] = [
   {
-    title: "Mcodo :Learn Coding with AI",
-    description:
-      "Mcodo is an AI-powered learning platform that makes coding interactive, personalized, and fun for everyone—from beginners to pros.",
-    image: "/images/projects/mcodo.webp",
-    tags: ["Kotlin", "NodeJS", "Room-DB", "Ktor Client", "SSE"],
-    github: null,
-    demo: "https://play.google.com/store/apps/details?id=com.sohezsoft.mcodo&hl=en_IN",
+    id: "project-1",
+    title: "Project Name",
+    description: "Project description goes here.",
+    image: "/images/placeholder.svg",
+    tags: ["Technology", "Framework", "Tool"],
+    github: "https://github.com/Aditya-7-Yadav",
+    demo: "https://github.com/Aditya-7-Yadav",
   },
   {
-    title: "HRMS System",
-    description:
-      "HRMS System – Full Stack Web & Android app for attendance, leave, payroll, and scheduling with secure RBAC and JWT auth.",
-    image: "/images/projects/hrms.webp",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "Express",
-      "PostgreSQL",
-      "Jetpack Compose",
-      "Drizzel-ORM",
-    ],
-    github: null,
-    demo: null,
+    id: "project-2",
+    title: "Project Name",
+    description: "Project description goes here.",
+    image: "/images/placeholder.svg",
+    tags: ["Technology", "Framework", "Tool"],
+    github: "https://github.com/Aditya-7-Yadav",
+    demo: "https://github.com/Aditya-7-Yadav",
   },
-  {
-    title: "M.C.P : Marks & Percentage Calculator",
-    description:
-      "powerful and easy-to-use solution for calculating academic performance. Built with HTML, CSS, JavaScript, html2canvas, and jsPDF.",
-    image: "/images/projects/mpc.webp",
-    tags: ["HTML", "Css", "JS", "html2canvas", "jsPDF"],
-    github: "https://github.com/sohez/Marks-Percentage-Calculator",
-    demo: "https://sohez.github.io/Marks-Percentage-Calculator/",
+   {
+    id: "project-3",
+    title: "Project Name",
+    description: "Project description goes here.",
+    image: "/images/placeholder.svg",
+    tags: ["Technology", "Framework", "Tool"],
+    github: "https://github.com/Aditya-7-Yadav",
+    demo: "https://github.com/Aditya-7-Yadav",
   },
 ];
+
 
 const Projects = () => {
   return (
@@ -90,7 +85,7 @@ const Projects = () => {
         >
           {projects.map((project) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
@@ -109,7 +104,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="mt-6 text-center text-gray-500"
         >
-          Delivered 15+ confidential projects across web and mobile platforms.
+          Delivered many projects across web platforms.
         </motion.div>
       </div>
     </section>

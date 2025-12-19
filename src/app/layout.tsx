@@ -20,55 +20,53 @@ const openSans = Open_Sans({
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "SAYYED SOHEL",
-  url: "https://sohez.github.io/",
-  image: "https://sohez.github.io/images/hero/sohel-sayyed-image.webp",
+  name: "ADITYA YADAV",
+  url: "https://github.com/Aditya-7-Yadav",
+  image: "https://github.com/Aditya-7-Yadav/images/placeholder.svg",
   sameAs: [
-    "https://www.instagram.com/sohel_sayyed.0x",
-    "https://github.com/sohez",
-    "https://www.linkedin.com/in/sohez/",
+    "https://www.instagram.com/arc_wizard_",
+    "https://github.com/Aditya-7-Yadav",
+    "https://www.linkedin.com/in/aditya7yadav/",
   ],
   jobTitle: "Founder & Software Developer",
   worksFor: {
     "@type": "Organization",
-    name: "Sohezsoft",
-    url: "https://sohez.github.io/",
+    name: "Aditya Yadav",
+    url: "",
   },
   description:
-    "Sayyed Sohel — Full-Stack Web & Android Developer, Founder of Sohezsoft. I build fast, modern, and user-focused digital experiences that stand out.",
+    "Aditya Yadav — Full-Stack Web & Android Developer. I build fast, modern, and user-focused digital experiences that stand out.",
 };
 
 export const metadata: Metadata = {
-  title: "Sohez: Official Site of Sayyed Sohel",
+  title: "Official Site of Aditya Yadav",
   description:
-    "Sayyed Sohel — Full-Stack Web & Android Developer, Founder of Sohezsoft. I build fast, modern, and user-focused digital experiences that stand out.",
+    "Aditya Yadav — Full-Stack Web & Android Developer. I build fast, modern, and user-focused digital experiences that stand out.",
   keywords: [
-    "Sohez: Official Site of Sayyed Sohel",
-    "sayyed sohel",
-    "sohez",
-    "Sohez Official",
+    "Official Site of Aditya Yadav",
+    "aditya yadav",
     "Portfolio website",
     "Developer website",
     "Websites Development",
     "Android Development",
   ],
-  metadataBase: new URL("https://sohez.github.io/"),
+  metadataBase: new URL("https://github.com/Aditya-7-Yadav"),
   alternates: {
-    canonical: "https://sohez.github.io/",
+    canonical: "https://github.com/Aditya-7-Yadav",
   },
   openGraph: {
     type: "website",
-    url: "https://sohez.github.io/",
-    title: "Sohez: Official Site of Sayyed Sohel",
+    url: "https://github.com/Aditya-7-Yadav",
+    title: "Official Site of Aditya Yadav",
     description:
-      "Sayyed Sohel — Full-Stack Web & Android Developer, Founder of Sohezsoft. I build fast, modern, and user-focused digital experiences that stand out.",
-    siteName: "sohez.github.io",
+      "Aditya Yadav — Full-Stack Web & Android Developer. I build fast, modern, and user-focused digital experiences that stand out.",
+    siteName: "github.com/Aditya-7-Yadav",
     images: [
       {
-        url: "https://sohez.github.io/images/hero/sohel-sayyed-image.webp",
+        url: "/images/placeholder.svg",
         width: 800,
         height: 800,
-        alt: "Sayyed Sohel",
+        alt: "Aditya Yadav",
       },
     ],
     locale: "en_US",
@@ -83,11 +81,11 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Sohez",
+    title: "Aditya",
   },
   icons: {
-    icon: "https://sohez.github.io/images/hero/sohel-sayyed-image.webp",
-    apple: "https://sohez.github.io/images/hero/sohel-sayyed-image.webp",
+    icon: "/images/placeholder.svg",
+    apple: "/images/placeholder.svg",
   },
 };
 

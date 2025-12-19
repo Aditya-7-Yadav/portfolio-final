@@ -4,9 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "../ui/SectionHeader";
 import { BiSend, BiLoaderAlt } from "react-icons/bi";
+import emailjs from "@emailjs/browser";
+
 type StatusType = "Loading" | "Success" | "Error";
+
 const Contact = () => {
-  const [form, setForm] = useState({ email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [status, setStatus] = useState<{
     message: string;
@@ -14,27 +17,26 @@ const Contact = () => {
   } | null>(null);
   const [isSending, setIsSending] = useState(false);
 
-  const emailUrl =
-    "https://script.google.com/macros/s/AKfycbwkjI7POBip0D3idUWfZwmdN4bV9TPfkfUWLwWZbu_rxDWSM5_F5VI1jVAXCKlRt0ykAg/exec";
+    const SERVICE_ID = "service_y1a3sy4";
+  const TEMPLATE_ID = "template_6ow1ubi";
+  const PUBLIC_KEY = "lMEBz6W9HIGRT5Ul7";
 
-  /** Email validation */
   const checkEmailIsValid = (email: string) => {
     const emailReg = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     return emailReg.test(email);
   };
 
-  /** Handle input changes */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error when typing
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  /** Validate fields before submit */
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
+    if (!form.name.trim()) newErrors.name = "Name is required.";
     if (!form.email.trim()) newErrors.email = "Email is required.";
     else if (!checkEmailIsValid(form.email))
       newErrors.email = "Enter a valid email address.";
@@ -43,7 +45,6 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  /** Handle submit */
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -51,25 +52,24 @@ const Contact = () => {
     setIsSending(true);
     setStatus({ message: "Sending...", status: "Loading" });
 
-    const formData = new FormData();
-    formData.set("Name", "@PORTFOLIO-v2");
-    formData.set("Email", form.email);
-    formData.set("Request", form.message);
-
     try {
-      const response = await fetch(emailUrl, {
-        method: "POST",
-        body: formData,
-      });
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        PUBLIC_KEY
+      );
 
-      const result = await response.json();
-      console.log("Email response:", result);
       setStatus({
         message: "Thanks for reaching out! I'll get back to you soon.",
         status: "Success",
       });
-      setForm({ email: "", message: "" });
-    } catch (error) {
+      setForm({ name: "", email: "", message: "" });
+    } catch {
       setStatus({
         message: "Something went wrong. Please try again.",
         status: "Error",
@@ -80,12 +80,16 @@ const Contact = () => {
     }
   };
 
-  const color = status?.status === "Success" ? "text-green-500" : status?.status === "Error" ? "text-red-500" : "text-gray-400";
+  const color =
+    status?.status === "Success"
+      ? "text-green-500"
+      : status?.status === "Error"
+      ? "text-red-500"
+      : "text-gray-400";
 
   return (
     <section className="w-full mt-25 px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-8 justify-center items-center">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +103,6 @@ const Contact = () => {
           />
         </motion.div>
 
-        {/* Contact Form */}
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 30 }}
@@ -110,6 +113,31 @@ const Contact = () => {
             isSending ? "opacity-70 pointer-events-none" : ""
           }`}
         >
+          {/* Name */}
+          <div className="flex flex-col">
+            <label htmlFor="name" className="text-sm text-gray-400 mb-2">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              className={`px-4 py-3 rounded-md bg-transparent border ${
+                errors.name ? "border-red-500" : "border-gray-700"
+              } focus:outline-none focus:ring-2 ${
+                errors.name ? "focus:ring-red-500" : "focus:ring-gray-500"
+              } placeholder-gray-500 transition-all duration-200`}
+              disabled={isSending}
+            />
+            {errors.name && (
+              <span className="text-red-500 text-sm mt-1">
+                {errors.name}
+              </span>
+            )}
+          </div>
+
           {/* Email */}
           <div className="flex flex-col">
             <label htmlFor="email" className="text-sm text-gray-400 mb-2">
@@ -130,7 +158,9 @@ const Contact = () => {
               disabled={isSending}
             />
             {errors.email && (
-              <span className="text-red-500 text-sm mt-1">{errors.email}</span>
+              <span className="text-red-500 text-sm mt-1">
+                {errors.email}
+              </span>
             )}
           </div>
 
@@ -160,8 +190,6 @@ const Contact = () => {
             )}
           </div>
 
-          
-          {/* Status Message */}
           {status && (
             <motion.p
               initial={{ opacity: 0 }}
@@ -172,7 +200,6 @@ const Contact = () => {
             </motion.p>
           )}
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isSending}

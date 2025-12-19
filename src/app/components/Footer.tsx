@@ -11,22 +11,17 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: <BsInstagram size={20} />,
-    url: "https://www.instagram.com/sohel_sayyed.0x",
-  },
-  {
-    name: "WhatsApp",
-    icon: <BsWhatsapp size={20} />,
-    url: "https://wa.me/+917887614788",
+    url: "https://www.instagram.com/arc_wizard_",
   },
   {
     name: "Email",
     icon: <MdMailOutline size={24} />,
-    url: "mailto:techsohez@gmail.com",
+    url: "mailto:anilyadav3241@gmail.com",
   },
   {
     name: "Linkedin",
     icon: <FiLinkedin size={24} />,
-    url: "https://www.linkedin.com/in/sohez/",
+    url: "https://www.linkedin.com/in/aditya7yadav/",
   },
 ];
 
@@ -49,11 +44,11 @@ const Footer = () => {
         <div className="mt-4 w-full flex flex-col-reverse md:flex-row gap-8 justify-between">
           <div className="flex gap-1 flex-col items-center md:items-start justify-center">
             <h3 className="text-xl font-medium font-display flex gap-1">
-              <Code2Icon /> SAYYED SOHEL
+              <Code2Icon /> ADITYA YADAV
             </h3>
             <p className="text-gray-500 text-center">
-              Sayyed Sohel © {new Date().getFullYear()} Built with ❤️ by Sohel
-              Sayyed
+              Aditya Yadav © {new Date().getFullYear()} Built with ❤️ by Aditya
+              Yadav
             </p>
           </div>
 

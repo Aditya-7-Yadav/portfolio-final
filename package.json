@@ -12,7 +12,11 @@
     "@emailjs/browser": "^4.4.1",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.545.0",
+<<<<<<< HEAD
     "next": "^16.1.0",
+=======
+    "next": "15.5.9",
+>>>>>>> 12af7a0d574cdcda3ce5a5be7ba3b7e0074c68d1
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0"

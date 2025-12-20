@@ -7,9 +7,9 @@ import { TbBrandTypescript } from "react-icons/tb";
 import { RiTailwindCssLine } from "react-icons/ri";
 import { SiExpress } from "react-icons/si";
 import { SiPostgresql } from "react-icons/si";
-import { RiAndroidLine } from "react-icons/ri";
+import { SiN8N } from "react-icons/si";
 import { TbBrandKotlin } from "react-icons/tb";
-import { SiJetpackcompose } from "react-icons/si";
+import { GoCpu } from "react-icons/go";
 import { TbBrandMongodb } from "react-icons/tb";
 import { DiRedis } from "react-icons/di";
 import { TbBrandJavascript } from "react-icons/tb";
@@ -58,11 +58,11 @@ export const skillsData: SkillGroup[] = [
     ],
   },
   {
-    title: "Mobile",
+    title: "AI systems, Automations and ML",
     skills: [
-      { name: "Android", logo: RiAndroidLine },
-      { name: "Kotlin", logo: TbBrandKotlin },
-      { name: "Jetpack Compose", logo: SiJetpackcompose },
+      { name: "N8N", logo: SiN8N },
+      { name: "RAG Pipelines", logo: TbBrandKotlin },
+      { name: "Gen AI", logo: GoCpu },
     ],
   },
 ];
